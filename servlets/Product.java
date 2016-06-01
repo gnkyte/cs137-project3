@@ -7,18 +7,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import utilities.DatabaseConnection;
+import utilities.Shared;
 import utilities.ShoeHistoryContainer;
 import utilities.ShoppingCart;
 
 /**
  * Servlet implementation class Product
  */
+@WebServlet(name = "Product", urlPatterns = {"/Product"})
 public class Product extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,10 +40,19 @@ public class Product extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		out.println("<html>"
+				+ "<head>"
+				+ "    <link rel=\"stylesheet\" type=\"text/css\" href=\"custom.css\">"
+				+ "</head>"
+				+ "<title>Secret Life of Shoes | CS137 && INF124"
+				+ "</title>");
+//				+ "<body>");
+		
 		//connect to server
 		
 		String productID = request.getParameter("id");
-		productID="9";
+//		productID="9";
 		//add viewing the product to the history
 		ShoeHistoryContainer history = (ShoeHistoryContainer) session.getAttribute("history");
 		history.insert(Integer.parseInt(productID));
@@ -90,7 +102,16 @@ public class Product extends HttpServlet {
 			String description = shoe.getString(3);
 			String materials = shoe.getString(4);
 			double price = shoe.getDouble(5);
+			String gender = shoe.getString(6);
 			String imagePath = shoe.getString(7);
+			
+			if(gender.equals("M"))
+				out.println("<body id=\"mens-shoes\" background=\"img/slide3.jpg\">");
+			else
+				out.println("<body id=\"womens-shoes\" background=\"img/slide4.jpg\">");
+
+			out.println(Shared.getHeader( gender.equals("M") ? "men" : "women" ));
+
 			
 			ResultSet stock = getProductStockOptions(id, db);
 			boolean inStock = true;
@@ -101,7 +122,7 @@ public class Product extends HttpServlet {
 			out.println("<table border='1'>"
 					+ "<tr>");
 			out.println("<td>"
-					+ "<img src=\""+imagePath+"\" alt=\""+name+"\" width=\"300\" style=\"margin: 10px\">"
+					+ "<img class=\"product-img\" src=\""+imagePath+"\" alt=\""+name+"\" >"
 					+ "</td>");
 			out.println("<td>");
 			out.println("<p>$"+price+"</p>" //TODO format into 2 decimal places

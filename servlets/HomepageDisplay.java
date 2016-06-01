@@ -7,15 +7,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import utilities.DatabaseConnection;
+import utilities.Shared;
 
 /**
  * Servlet implementation class HomepageDisplay
  */
+@WebServlet(name = "HomepageDisplay", urlPatterns = {"/HomepageDisplay"})
 public class HomepageDisplay extends HttpServlet {
 	final static int SHOES_PER_ROW = 3;
 	private static final long serialVersionUID = 1L;
@@ -32,15 +35,31 @@ public class HomepageDisplay extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		DatabaseConnection db= new DatabaseConnection();
-		if(db.connection == null) {
-			out.println("no connection");
-			return;
-		}
+		DatabaseConnection db = new DatabaseConnection();
+
 		out.println("<html>"
-				+ "<title>"
+				+ "<head>"
+				+ "    <link rel=\"stylesheet\" type=\"text/css\" href=\"custom.css\">"
+				+ "</head>"
+				+ "<title>Secret Life of Shoes | CS137 && INF124"
 				+ "</title>"
 				+ "<body>");
+				
+		out.println(Shared.getHeader("index"));
+		
+		if(db.connection == null) {
+			out.println("no connection");
+			out.println("Ughhh :C");
+//			return;
+		}
+		
+		out.println("     <div id=\"slider\">");
+		out.println("             <a href=\"all_shoe.html\"><img src=\"img/slide0.jpg\" alt=\"jumbotron.jpg\" /></a>");
+		out.println("     </div>");
+		out.println("         <hr align=\"center\" size=\"1rem\" width=\"30%\"/>"); 
+		 
+		 
+		
 		ResultSet maleShoes = getShoes("M", db);
 		outputShoes(maleShoes, db, out, "Male Shoes");
 		
@@ -52,12 +71,11 @@ public class HomepageDisplay extends HttpServlet {
 		
 		out.print("</body>"
 				+ "</html>");
-		
 	
 		try {
-			db.connection.close();
+			if( db.connection != null )
+				db.connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -91,9 +109,17 @@ public class HomepageDisplay extends HttpServlet {
 		//outputs the shoes as a table that allows us to format the shoes in a nice way
 		//TODO: make it look good.
 		int shoeCol = 0;
-		out.println("<h3>"+header+"</h3>");
-		out.println("<table border='1'>"
-				+ "<tr>");
+//		out.println("<h3>"+header+"</h3>");
+//		out.println("<table border='1'>"
+//				+ "<tr>");
+		
+        out.println("<div id=\"product-index\">");
+        out.println("<div id=\"womens-shoes-index\">");
+        out.println("    <h1>" + header + "</h1>");
+        out.println("    <hr class=\"separator\">");
+        out.println("    <table id=\"womens-shoes-table\">");
+        out.println("        <tr colspan=\"3\">");
+
 		
 		try {
 			while(shoes.next()) {
@@ -104,7 +130,7 @@ public class HomepageDisplay extends HttpServlet {
 				String imagePath= shoes.getString("imagePath");
 				out.println("<td>");
 				out.println("<a href='Product?id="+id+"'"
-						+ "<img src=\""+imagePath+"\" alt=\""+name+"\" width=\"300\" style=\"margin: 10px\">"
+						+ "<img class=\"product-img\" src=\""+imagePath+"\" alt=\""+name+"\">"
 						+ "<p>"+name+"</p>"
 						+ "<p>$"+price+"</p>"
 						+ "</a>");
@@ -115,7 +141,7 @@ public class HomepageDisplay extends HttpServlet {
 					out.println("</tr><tr>");
 				}
 			}
-			out.println("</tr></table>");	
+			out.println("</tr></table></div></div>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

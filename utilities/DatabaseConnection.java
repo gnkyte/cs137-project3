@@ -7,25 +7,22 @@ import java.sql.SQLException;
 
 
 public class DatabaseConnection {
-	private String username;
-	private String password;
-	private String loginURL;
+	private static final String username="inf124grp18";
+	private static final String password="Gewr8R-w";
+	private static final String loginURL="jdbc:mysql://sylvester-mccoy-v3.ics.uci.edu/inf124grp18";
 	
 	public Connection connection;
 	
-//	public DatabaseConnection() {
-//		username="inf124grp18";
-//		password="Gewr8R-w";
-//		loginURL="jdbc:mysql://sylvester-mccoy-v3.ics.uci.edu/inf124grp18";
-//		connect();
-//	}
-	public DatabaseConnection()
-	{
-		username = "root";
-		password = "root";
-		loginURL = "jdbc:mysql://localhost:3306/inf124grp18";
+	public DatabaseConnection() {
 		connect();
 	}
+//	public DatabaseConnection()
+//	{
+//		username = "root";
+//		password = "root";
+//		loginURL = "jdbc:mysql://localhost:3306/inf124grp18";
+//		connect();
+//	}
 	
 	public void connect()
 	{
