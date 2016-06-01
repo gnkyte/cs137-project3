@@ -8,23 +8,43 @@ public class ShoeHistoryContainer {
 	final static int MAX_SHOES = 5; 
 	
 	private int count;
-	private Queue<Integer> shoes;
+	//stores the shoeID
+	private Queue<Integer> shoeIDs;
+	private Queue<ShoeHistory> shoes;
 	public ShoeHistoryContainer() {
 		count = 0;
-		shoes = new LinkedList<Integer>();
+		shoeIDs = new LinkedList<Integer>();
+		shoes = new LinkedList<ShoeHistory>();
 	}
 	
-	public void insert(int shoeID) {
-		if(count == MAX_SHOES) {
-			//if there are already 5 shoes in the history,
-			//then remove the oldest one and insert the new shoe.
-			shoes.remove();
-			shoes.add(shoeID);
-		} else {
-			//If there are not 5 items, then you can just insert it
-			shoes.add(shoeID);
-			count++;
+	public void insert(ShoeHistory sh) {
+		if(!shoeIDs.contains(sh)) {
+			if(count == MAX_SHOES) {
+				//if there are already 5 shoes in the history,
+				//then remove the oldest one and insert the new shoe.
+				shoes.remove();
+				shoes.add(sh);
+				shoeIDs.remove();
+				shoeIDs.add(sh.getID());
+			} else {
+				//If there are not 5 items, then you can just insert it
+				shoeIDs.add(sh.getID());
+				shoes.add(sh);
+				count++;
+			}
 		}
+	}
+	
+	public Queue<ShoeHistory> getShoes() {
+		return shoes;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	
+	public boolean isEmpty() {
+		return count == 0;
 	}
 	
 	

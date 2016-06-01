@@ -34,7 +34,7 @@ public class Shoe {
 	}
 
 	//modifiers
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quanitity) {
 		this.quantity = quantity;
 	}
 	public void increaseQuantityBy(int increasedQuantity) {
