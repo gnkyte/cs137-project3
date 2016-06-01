@@ -50,8 +50,8 @@ public class ShoppingCart {
 			numItems += quantity;
 		}
 		uniqueTotal++;
-	}
-	
+	}	
+
 	public void removeFromCart(int id, double size) {
 		int index = getIndexOfShoe(id, size);
 		Shoe s = shoes.get(index);
@@ -59,20 +59,20 @@ public class ShoppingCart {
 		totalPrice -= s.getPrice()*s.getQuantity();
 		shoes.remove(index);		
 	}
-
+	
 	private boolean shoeInCart(int index) {
 		return index > -1;
 	}
-	
 	private int getIndexOfShoe(int id, double size) {
-		//assumes that the shoe already exists. otherwise return -1
+		if(shoes.size() == 0) 
+			return -1;
+		//assumes that the shoe already exists, otherwise, return -1
 		for(int i = 0; i < shoes.size(); ++i) {
-			if(shoes.get(i).getID() == id && shoes.get(i).getSize()==size) {
-				return i;
+			if(shoes.get(i).getID()==id && shoes.get(i).getSize()==size) {
+				return 1;
 			}
 		}
 		return -1;
 	}
-	
-	
 }
+	
