@@ -10,7 +10,7 @@
 <title>Female Shoes</title>
 </head>
 <body>
-	<h1>Female Shoes</h1>
+	<h3>Female Shoes</h3>
 	<table border=1>
 		<tr>
 		<%

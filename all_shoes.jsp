@@ -10,7 +10,7 @@
 <title>All Shoes</title>
 </head>
 <body>
-	<h1>All Shoes</h1>
+	<h3>All Shoes</h3>
 	<table border=1>
 		<tr>
 		<%

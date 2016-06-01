@@ -22,6 +22,10 @@
 	<h1>Welcome to Secret Life of Shoes!</h1>
 	<h2>Your one-stop shop for shoes galore!</h2>
 	<h3>Shoes</h3>
+	<jsp:include page="all_shoes.jsp" />
 	<h3>Viewing History</h3>
+	<jsp:include page="shoe_history.jsp" />
+	
+	
 </body>
 </html>
