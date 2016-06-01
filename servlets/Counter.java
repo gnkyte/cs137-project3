@@ -35,8 +35,10 @@ public class Counter extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+//        response.setContentType("text/html;charset=UTF-8");
+//        try (PrintWriter out = response.getWriter()) {
+    	try {
+    		PrintWriter out = response.getWriter();
             checkIfMapExists(request);
             ((Map<String, Set<String>>)getServletContext().
                 getAttribute("visitMapCount")).
@@ -49,6 +51,10 @@ public class Counter extends HttpServlet {
             out.println("You might want to jump on this soon! There's only a limited stock available!</p>");
             out.println("</div>");
         }
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

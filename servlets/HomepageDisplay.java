@@ -61,10 +61,10 @@ public class HomepageDisplay extends HttpServlet {
 		 
 		
 		ResultSet maleShoes = getShoes("M", db);
-		outputShoes(maleShoes, db, out, "Male Shoes");
+		outputShoes(maleShoes, db, out, "Men's Shoes");
 		
 		ResultSet femaleShoes = getShoes("F", db);
-		outputShoes(femaleShoes, db, out, "Female Shoes");
+		outputShoes(femaleShoes, db, out, "Women's Shoes");
 		
 		ResultSet allShoes = getShoes("all", db);
 		outputShoes(allShoes, db, out, "All Shoes");
@@ -107,7 +107,6 @@ public class HomepageDisplay extends HttpServlet {
 	
 	private void outputShoes(ResultSet shoes, DatabaseConnection connection, PrintWriter out, String header) {
 		//outputs the shoes as a table that allows us to format the shoes in a nice way
-		//TODO: make it look good.
 		int shoeCol = 0;
 //		out.println("<h3>"+header+"</h3>");
 //		out.println("<table border='1'>"
@@ -126,13 +125,15 @@ public class HomepageDisplay extends HttpServlet {
 				//(productID, name, description, materials, price, gender, imagePath) 
 				int id = shoes.getInt(1);
 				String name= shoes.getString("productID");
+//				String literalName = shoes.getString("name");
 				double price= shoes.getDouble("price");
 				String imagePath= shoes.getString("imagePath");
 				out.println("<td>");
 				out.println("<a href='Product?id="+id+"'"
 						+ "<img class=\"product-img\" src=\""+imagePath+"\" alt=\""+name+"\">"
-						+ "<p>"+name+"</p>"
-						+ "<p>$"+price+"</p>"
+						+ "<p>Path: " + imagePath + "</p><br />"
+						+ "<p>Name: "+name+"</p><br />"
+						+ "<p>$"+price+"</p><br />"
 						+ "</a>");
 				out.print("</td>");
 				shoeCol++;

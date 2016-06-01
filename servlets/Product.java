@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,7 +75,7 @@ public class Product extends HttpServlet {
 				ResultSet shoe = getShoe.executeQuery(query);
 				
 				if(shoe.next()) {
-					outputShoe(shoe, out, db);
+					outputShoe(shoe, out, db, request, response);
 				} else {
 					out.println("ERROR: Shoe not found!");
 					return;
@@ -94,7 +95,8 @@ public class Product extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private void outputShoe(ResultSet shoe, PrintWriter out, DatabaseConnection db) {
+	private void outputShoe(ResultSet shoe, PrintWriter out, DatabaseConnection db,
+			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			//(productID, name, description, materials, price, gender, imagePath)
 			int id = shoe.getInt(1);
@@ -118,19 +120,44 @@ public class Product extends HttpServlet {
 			if(!stock.isBeforeFirst()) {
 				inStock=false;
 			}
-			out.println("<h2>"+name+"</h2>");
-			out.println("<table border='1'>"
-					+ "<tr>");
-			out.println("<td>"
-					+ "<img class=\"product-img\" src=\""+imagePath+"\" alt=\""+name+"\" >"
-					+ "</td>");
-			out.println("<td>");
-			out.println("<p>$"+price+"</p>" //TODO format into 2 decimal places
-					+"<p>Description: "+description+"</p>"
-					+"<br><br><p>Materials: "+materials+"</p>");
+
+			out.println("<div id=\"shoe-description-container\">");
+			out.println("    <br />");
+			out.println("    <h2 id=\"shoe-title\">"+ name +"</h2>");
+			out.println("    <table class=\"shoe\">");
+			out.println("        <tr>");
+			out.println("            <td>");
+			out.println("                <img src=\"" + imagePath + "\" alt=\"" + imagePath + "\" width=\"300\" style=\"margin: 10px\">");
+			out.println("            </td>");
+			out.println("            <td>");
+			out.println("                <p class=\"shoePrice\">$" + price + "</p>");
+			out.println("                <p class=\"shoeDescription\">"+ description +"</p>");
+			out.println("                <br><br>");
+			out.println("                <p class=\"materials-list\">Materials: "+materials+"</p>");
+			out.println("            </td>");
+			out.println("        </tr>");
+			out.println("    </table>");
+			out.println("</div>");
+			
+			
+//			out.println("<h2>"+name+"</h2>");
+//			out.println("<table border='1'>"
+//					+ "<tr>");
+//			out.println("<td>"
+//					+ "<img class=\"product-img\" src=\""+imagePath+"\" alt=\""+name+"\" >"
+//					+ "</td>");
+//			out.println("<td>");
+//			out.println("<p>$"+price+"</p>" //TODO format into 2 decimal places
+//					+"<p>Description: "+description+"</p>"
+//					+"<br><br><p>Materials: "+materials+"</p>");
 			
 			//form for ordering
 			if(inStock) {
+				
+	            RequestDispatcher rd = request.getRequestDispatcher("Counter");
+	            rd.include(request, response);
+	            
+	            out.println("<br />");
 				out.println("<form method='post' action='AddToCart'>"
 						+ "<input type='hidden' name='id' value='"+Integer.toString(id)+"'>"
 						+ "<input type='hidden' name='name' value='"+name+"'>"

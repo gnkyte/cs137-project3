@@ -11,18 +11,15 @@ public class DatabaseConnection {
 	private static final String password="Gewr8R-w";
 	private static final String loginURL="jdbc:mysql://sylvester-mccoy-v3.ics.uci.edu/inf124grp18";
 	
+//	private static final String username = "root";
+//	private static final String password = "root";
+//	private static final String loginURL = "jdbc:mysql://localhost:8888/secretlifeofshoes";
+	
 	public Connection connection;
 	
 	public DatabaseConnection() {
 		connect();
 	}
-//	public DatabaseConnection()
-//	{
-//		username = "root";
-//		password = "root";
-//		loginURL = "jdbc:mysql://localhost:3306/inf124grp18";
-//		connect();
-//	}
 	
 	public void connect()
 	{
