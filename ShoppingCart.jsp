@@ -7,12 +7,10 @@
 <title>Shopping Cart Contents</title>
 </head>
 <%
-
 if(session.getAttribute("cart")==null) {
 	session.setAttribute("cart", new ShoppingCart());
 }
 ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
-
 ArrayList<Shoe> items = cart.getShoes();
 if(cart.isEmpty()){
 	out.println("<h3>The shopping cart is empty.</h3>");
@@ -20,6 +18,8 @@ if(cart.isEmpty()){
 else{
 %>
 <body>
+	<jsp:include page="_navigationBar.jsp" />
+
 <br>
 <table border=4>
 <tr><th>Item</th><th>Quantity</th><th>Price</th></tr>

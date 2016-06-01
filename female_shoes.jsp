@@ -10,6 +10,7 @@
 <title>Female Shoes</title>
 </head>
 <body>
+	<jsp:include page="_navigationBar.jsp" />
 	<h3>Female Shoes</h3>
 	<table border=1>
 		<tr>

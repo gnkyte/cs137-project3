@@ -21,9 +21,8 @@
 	<jsp:include page="_navigationBar.jsp" />
 	<h1>Welcome to Secret Life of Shoes!</h1>
 	<h2>Your one-stop shop for shoes galore!</h2>
-	<h3>Shoes</h3>
-	<jsp:include page="all_shoes.jsp" />
-	<h3>Viewing History</h3>
+	<h3>All Shoes</h3>
+	<jsp:include page="_all_shoes_table.jsp" />
 	<jsp:include page="shoe_history.jsp" />
 	
 	
