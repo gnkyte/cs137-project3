@@ -1,4 +1,4 @@
-package servlets;
+package utilities;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
