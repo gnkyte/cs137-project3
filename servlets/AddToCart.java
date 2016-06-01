@@ -61,6 +61,7 @@ public class AddToCart extends HttpServlet {
 			}
 			//quantity is good, so we can add it to cart
 			cart.addToCart(id, name, price, size, quantity);
+			response.sendRedirect("/Shoes/ShoppingCart.jsp");
 
 		} catch (NumberFormatException e) {
 			//TODO tell the user that it needs to be an integer
