@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class ShoppingCart {
 	private double totalPrice;
 	private int numItems;	//quantity of each shoes in cart
+	private int uniqueTotal;
 	private ArrayList<Shoe> shoes;
 	
 	public ShoppingCart() {
 		totalPrice = 0;
 		numItems = 0;
+		uniqueTotal = 0;
 		shoes = new ArrayList<Shoe>();
 	}
 	
@@ -23,6 +25,10 @@ public class ShoppingCart {
 	
 	public int getNumItems() {
 		return numItems;
+	}
+	
+	public int getUniqueTotal(){
+		return uniqueTotal;
 	}
 	
 	public ArrayList<Shoe> getShoes() {
@@ -43,6 +49,7 @@ public class ShoppingCart {
 			totalPrice += indPrice*quantity;
 			numItems += quantity;
 		}
+		uniqueTotal++;
 	}
 	
 	public void removeFromCart(int id, double size) {
