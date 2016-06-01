@@ -25,7 +25,7 @@ else{
 <tr><th>Item</th><th>Quantity</th><th>Price</th></tr>
 <%
 	NumberFormat c = NumberFormat.getCurrencyInstance();
-	for(int i = 0; i < cart.getNumItems(); i++){
+	for(int i = 0; i < cart.getUniqueTotal(); i++){
 		out.print("<tr><td>");
 		out.print(items.get(i).getName());
 		out.print("</td><td>");
