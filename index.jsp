@@ -12,19 +12,23 @@
 		session.setAttribute("history", new ShoeHistoryContainer());
 	}
 %>
+
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Secret Life of Shoes: Homepage</title>
-</head>
-<body>
-	<jsp:include page="_navigationBar.jsp" />
-	<h1>Welcome to Secret Life of Shoes!</h1>
-	<h2>Your one-stop shop for shoes galore!</h2>
-	<h3>All Shoes</h3>
-	<jsp:include page="_all_shoes_table.jsp" />
-	<jsp:include page="shoe_history.jsp" />
-	
-	
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Secret Life of Shoes: Homepage</title>
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body>
+		<jsp:include page="_navigationBar.jsp" />
+		<h1 style="text-align: center">Welcome to Secret Life of Shoes!</h1>
+		<h2 style="text-align: center">Your one-stop shop for shoes galore!</h2>
+	    <div id="slider">
+            <a href="all_shoe.html"><img src="img/slide0.jpg" alt="jumbotron.jpg" /></a>
+    	</div>
+        <hr align="center" size="1rem" width="30%"/>
+		<h3>All Shoes</h3>
+		<jsp:include page="_all_shoes_table.jsp" />
+		<jsp:include page="shoe_history.jsp" />
+	</body>
 </html>

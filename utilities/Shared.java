@@ -10,10 +10,10 @@ public class Shared
 		header.append("        <ul id=\"menubar\">");
 		header.append("            <li class=\"navbar-logo\"><a href=\"index.html\"><img src=\"img/logo.png\" alt=\"logo\"/></a></li>");
 		
-		header.append( activePage.equals("index") ? "<li class=\"active\"><a href=\"HomepageDisplay\">Home</a></li>" : "<li><a href=\"HomepageDisplay\">Home</a></li>");
-		header.append( activePage.equals("all") ? "<li class=\"active\"><a href=\"HomepageDisplay\">All Shoes</a></li>" : "<li><a href=\"HomepageDisplay\">All Shoes</a></li>");
-		header.append( activePage.equals("men") ? "<li class=\"active\"><a href=\"HomepageDisplay\">Men's Shoes</a></li>" : "<li><a href=\"HomepageDisplay\">Men's Shoes</a></li>");
-		header.append( activePage.equals("women") ? "<li class=\"active\"><a href=\"HomepageDisplay\">Women's Shoes</a></li>" : "<li><a href=\"HomepageDisplay\">Women's Shoes</a></li>");
+		header.append( activePage.equals("index") ? "<li class=\"active\"><a href=\"index.jsp\">Home</a></li>" : "<li><a href=\"index.jsp\">Home</a></li>");
+		header.append( activePage.equals("all") ? "<li class=\"active\"><a href=\"all_shoes.jsp\">All Shoes</a></li>" : "<li><a href=\"all_shoes.jsp\">All Shoes</a></li>");
+		header.append( activePage.equals("M") ? "<li class=\"active\"><a href=\"male_shoes.jsp\">Men's Shoes</a></li>" : "<li><a href=\"male_shoes.jsp\">Men's Shoes</a></li>");
+		header.append( activePage.equals("F") ? "<li class=\"active\"><a href=\"female_shoes.jsp\">Women's Shoes</a></li>" : "<li><a href=\"female_shoes.jsp\">Women's Shoes</a></li>");
         
 		header.append("        </ul>");    
 		header.append("        <ul id=\"menubar-right\">");

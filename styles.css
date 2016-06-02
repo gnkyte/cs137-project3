@@ -1,0 +1,302 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+body {
+    font-family: sans-serif;
+    background-color: #e3e3e3;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#shoe-index {
+/*    background-image: url("img/slide5.jpg");*/
+    background-attachment: fixed;
+    background-position:bottom;
+}
+
+#womens-shoes {
+/*    background-image: url("img/slide4.jpg");*/
+    background-attachment: fixed;
+}
+
+#mens-shoes {
+/*    background-image: url("img/slide3.jpg");*/
+    background-attachment: fixed;
+}
+
+#navbar-container {
+    margin: 0;
+    background-color: #003557;
+}
+
+nav.main-navbar {
+    background-color: #003557;
+    height: 5rem;
+}
+
+#menubar {
+    list-style-type: none;
+    margin: auto;
+    overflow: hidden;
+    background-color: #003557;
+    height: 5rem;
+    float: left;
+}
+
+ul {
+    margin: 0;
+}
+
+#menubar li {
+    display: inline;
+    float: left;
+    color: white;
+    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.navbar-logo {
+    text-align: center;
+    line-height: 5rem;
+    padding-left: 0;
+}
+
+.navbar-logo img {
+    max-height: 5rem;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    line-height: 5rem;
+    width: 5rem;
+}
+
+.active a {
+    color: pink;
+}
+
+h2 {
+    text-align: center;
+}
+
+#menubar-right {
+    float: right;
+    margin: 0;
+}
+
+#menubar-right li {
+    display: inline;
+    float: left;
+    color: white;
+    text-align: center;
+    margin-right: 3rem;
+}
+
+a:hover {
+    color: #e3e3e3;
+}
+
+.subtitle {
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    width: 100%;
+    height: 1rem;
+    background-color: #454545;
+    text-align: center;
+}
+
+#slider {
+    margin: 0 auto;
+    padding: 0 auto; 
+}
+
+#slider a img {
+    max-height: 40rem;
+    width: 100%;
+}
+
+#form-container {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    position: relative; 
+    float: left;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+}
+
+#billing-form {
+    margin: auto 1.5rem;
+    display: inline-block;
+}
+
+#submit-button {
+    margin-top: 1.5rem;
+    background-color: #003557;
+    width: 10rem;
+    color: white; 
+    border: 0; 
+}
+
+#submit-button:hover {
+    color: #e3e3e3;
+}
+
+#billing-form input[type="text"] {
+    height: 1.3rem;
+    margin-top: .3rem;
+}
+
+p.shoePrice {
+    font-size: 20px;
+    color: #003557;
+}
+
+p.shoeDescription {
+    font-size: 16px;
+    color: #003557;
+}
+
+table.shoe {
+    text-align: center;
+    border:1;
+    width:800;
+}
+
+#shoe-display {
+    color: "black";
+}
+
+#about-me-card {
+    background-color: #FFF;
+}
+
+#about-me {
+    background-color: #FFF;
+    margin-top: 3rem;
+    color: black;
+    text-align: left;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+}
+
+#about-me h1 {
+    padding-top: 1rem;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#about-me h3.description {
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+#about-me h2 {
+    font-weight: 600;
+    text-align: center;
+}
+
+#about-me h3 {
+    font-weight: 400;    
+}
+
+#business-info h3 {
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+hr.separator {
+    width: 40%;
+    margin-bottom: 1rem;
+}
+
+.product-img {
+    width: 200px;
+    height: 200px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.product-img:hover {
+    width: 400px;
+    height: 400px;
+}
+
+#product-index {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: #000;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(255, 255, 255, 0.91);
+}
+
+#product-index a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#product-index p {
+    padding-left: 3rem;
+}
+
+#womens-shoes-index h1 {
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+#mens-shoes-index {
+    margin-top: 3rem;
+}
+
+#confirmation {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: #000;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(255, 255, 255, 0.91);
+	padding: 10px 10px 10px 10px;
+}
+
+#totalPrice {
+    font-size: 16px;
+    color: #F00;
+}
+
+#shoe-description-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: #000;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(255, 255, 255, 0.91);
+}
+
+#shoe-title {
+    margin-bottom: 1rem;
+}
+
+.shoeDescription {
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: left;
+}
+
+.materials-list {
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+}

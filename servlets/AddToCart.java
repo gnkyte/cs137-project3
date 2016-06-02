@@ -14,7 +14,7 @@ import utilities.ShoppingCart;
 /**
  * Servlet implementation class AddToCart
  */
-@WebServlet(name = "AddToCart", urlPatterns = {"/AddToCart"})
+@WebServlet(name = "AddToCart", urlPatterns = {"/Shoes/AddToCart"})
 public class AddToCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
