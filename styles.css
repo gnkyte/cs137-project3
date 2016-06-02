@@ -300,3 +300,8 @@ hr.separator {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+#cart-table {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}

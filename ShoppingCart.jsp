@@ -5,7 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Shopping Cart Contents</title>
+<link rel="stylesheet" type="text/css" href="custom.css">
 </head>
+<body>
+	<jsp:include page="_navigationBar.jsp" />
+	<div id="shoe-description-container">
+	
 <%
 if(session.getAttribute("cart")==null) {
 	session.setAttribute("cart", new ShoppingCart());
@@ -13,30 +18,29 @@ if(session.getAttribute("cart")==null) {
 ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
 ArrayList<Shoe> items = cart.getShoes();
 if(cart.isEmpty()){
-	out.println("<h3>The shopping cart is empty.</h3>");
+	out.println("<h3 style='padding-top: 1rem; padding-bottom: 1rem;'>Your shopping cart is empty.</h3>");
 }
 else{
 %>
-<body>
-	<jsp:include page="_navigationBar.jsp" />
 
-<br>
-<table border=4>
+<table id="cart-table" border=4>
 <tr><th>Item</th><th>Quantity</th><th>Price</th></tr>
-<%
-	NumberFormat c = NumberFormat.getCurrencyInstance();
-	for(int i = 0; i < cart.getUniqueTotal(); i++){
-		out.print("<tr><td>");
-		out.print(items.get(i).getName());
-		out.print("</td><td>");
-		out.print(items.get(i).getQuantity());
-		out.print("</td><td>");
-		out.print(c.format(items.get(i).getPrice()));
-		
-		out.println("</td><td>" + "<a href=\"/servlets/RemoveItem?item=" + items.get(i).getID() + "\">Remove</a></td></tr>");
-		
+	<%
+		NumberFormat c = NumberFormat.getCurrencyInstance();
+		for(int i = 0; i < cart.getUniqueTotal(); i++){
+			out.print("<tr><td>");
+			out.print(items.get(i).getName());
+			out.print("</td><td>");
+			out.print(items.get(i).getQuantity());
+			out.print("</td><td>");
+			out.print(c.format(items.get(i).getPrice()));
+			
+			out.println("</td><td>" + "<a href=\"/servlets/RemoveItem?item=" + items.get(i).getID() + "\">Remove</a></td></tr>");
+			
+		}
 	}
-}
-%></table>
+	%>
+</table>
+</div>
 </body>
 </html>

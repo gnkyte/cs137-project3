@@ -144,7 +144,7 @@ public class Product extends HttpServlet {
 						+ "<input type='hidden' name='price' value='"+price+"'>"
 						+ "size:" + printProductStockOptions(stock)
 						+ "<br>quantity:<input type='number' name='quantity' required>"
-						+ "<br><input type='submit' value='Add to Cart'"
+						+ "<br><input type='submit' value='Add to Cart'>"
 						+ "</form>");
 			} else {
 				out.println("<p>Out of stock</p>");
@@ -181,12 +181,12 @@ public class Product extends HttpServlet {
 	private void navigationBar(PrintWriter out) {
 		out.println("<table border=1>"
 				+ "<tr>"
-				+ "<td><a href='/Shoes'>Home</a></td>"
-				+ "<td><a href='/Shoes/all_shoes.jsp'>All Shoes</a></td>"
-				+ "<td><a href='/Shoes/male_shoes.jsp'>Men's Shoes</a></td>"
-				+ "<td><a href='/Shoes/female_shoes.jsp'>Women's Shoes</a></td>"
-				+ "<td><a href='/Shoes/ShoppingCart.jsp'>View Cart</a></td>"
-				+ "<td><a href='/Shoes/about_us.html'>About Us</a></td>"
+				+ "<td><a href='index.jsp'>Home</a></td>"
+				+ "<td><a href='all_shoes.jsp'>All Shoes</a></td>"
+				+ "<td><a href='male_shoes.jsp'>Men's Shoes</a></td>"
+				+ "<td><a href='female_shoes.jsp'>Women's Shoes</a></td>"
+				+ "<td><a href='ShoppingCart.jsp'>View Cart</a></td>"
+				+ "<td><a href='about_us.html'>About Us</a></td>"
 				+ "");
 
 	}

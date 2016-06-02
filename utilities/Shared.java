@@ -17,6 +17,7 @@ public class Shared
         
 		header.append("        </ul>");    
 		header.append("        <ul id=\"menubar-right\">");
+		header.append("	           <li><a href=\"ShoppingCart.jsp\">Cart</a></li>");
 		header.append("            <li><a href=\"aboutMe.html\">About Us</a></li>");
 		header.append("        </ul>");
 		header.append("        <br />");

@@ -15,6 +15,7 @@
                         <form id="search-bar">
                         </form>
                     </li>
+                    <li><a href="ShoppingCart.jsp">Cart</a></li>
                     <li><a href="aboutMe.html">About Us</a></li>
                 </ul>
                 <br />

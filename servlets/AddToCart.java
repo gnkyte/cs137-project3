@@ -14,7 +14,7 @@ import utilities.ShoppingCart;
 /**
  * Servlet implementation class AddToCart
  */
-@WebServlet(name = "AddToCart", urlPatterns = {"/Shoes/AddToCart"})
+@WebServlet(name = "AddToCart", urlPatterns = {"/AddToCart"})
 public class AddToCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,7 +63,7 @@ public class AddToCart extends HttpServlet {
 			}
 			//quantity is good, so we can add it to cart
 			cart.addToCart(id, name, price, size, quantity);
-			response.sendRedirect("/Shoes/ShoppingCart.jsp");
+			response.sendRedirect("ShoppingCart.jsp");
 
 		} catch (NumberFormatException e) {
 			//TODO tell the user that it needs to be an integer
