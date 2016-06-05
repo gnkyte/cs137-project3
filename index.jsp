@@ -24,7 +24,7 @@
 		<h1 style="text-align: center">Welcome to Secret Life of Shoes!</h1>
 		<h2 style="text-align: center">Your one-stop shop for shoes galore!</h2>
 	    <div id="slider">
-            <a href="all_shoe.html"><img src="img/slide0.jpg" alt="jumbotron.jpg" /></a>
+            <a href="all_shoe.jsp"><img src="img/slide0.jpg" alt="jumbotron.jpg" /></a>
     	</div>
         <hr align="center" size="1rem" width="30%"/>
 		<h3>All Shoes</h3>
