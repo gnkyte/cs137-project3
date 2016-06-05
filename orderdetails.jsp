@@ -37,7 +37,7 @@
 	out.print("Shipping Address: ");
 	out.print(order.getShip());
 	out.print("<br>");
-	out.print("Credit Card ending with: ");
+	out.print("Credit Card Used: ");
 	out.print(order.getCredit());
 	out.print("<br>");
 	out.print("Email: ");
