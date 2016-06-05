@@ -45,6 +45,8 @@
 	out.print(order.getEmail());
 	out.print("<br>");
 	
+	session.setAttribute("cart", null);
+	session.setAttribute("purchase", null);
 %>
 </body>
 </html>
