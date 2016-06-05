@@ -44,7 +44,8 @@ public class Purchase {
 	}
 	
 	public String getCreditEnd(){
-		String toReturn = credit.substring(12);
+		int index = credit.length()/4;
+		String toReturn = credit.substring(index);
 		return toReturn;
 	}
 }
