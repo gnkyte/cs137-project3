@@ -26,7 +26,6 @@
 	}
 %></table>
 	<h3>Customer Information</h3>
-	<table border=1>
 <% 
 	Purchase order = (Purchase)session.getAttribute("purchase");
 	out.print("Name: ");
