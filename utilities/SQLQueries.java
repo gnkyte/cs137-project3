@@ -38,13 +38,14 @@ public class SQLQueries {
 	
 	public static int insertOrder(String[] params, Connection conn){
 		try{
-			String query = "INSERT INTO order (name, credit_card, ship_address, bill_address, email) VALUES (?, ?, ?, ?, ?)";//VALUES (\"?\", \"?\", \"?\", \"?\", \"?\")";
+			String query = "INSERT INTO purchases (name, credit_card, ship_address, bill_address, email) VALUES (?, ?, ?, ?, ?)";//VALUES (\"?\", \"?\", \"?\", \"?\", \"?\")";
 			PreparedStatement prepStmt = conn.prepareStatement(query);
 			prepStmt.setString(1, params[0]);
 			prepStmt.setString(2, params[1]);
 			prepStmt.setString(3, params[2]);
 			prepStmt.setString(4, params[3]);
 			prepStmt.setString(5, params[4]);
+			System.out.println(prepStmt);
 			return prepStmt.executeUpdate();
 		} catch(SQLException e){
 			System.out.println(e);

@@ -102,6 +102,7 @@ public class Checkout extends HttpServlet{
 			int status = SQLQueries.insertOrder(params, db.connection);
 			if(status == 0){
 				out.println("Error: Inserting Order has failed.");
+			response.sendRedirect("orderdetails.jsp");
 				return;
 			}
 			else{
