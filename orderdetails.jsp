@@ -25,50 +25,26 @@
 		out.print(c.format((items.get(i).getPrice())*(items.get(i).getQuantity())));
 	}
 %></table>
-	<h3>Shipping Information</h3>
+	<h3>Customer Information</h3>
 	<table border=1>
 <% 
-	String shipname = request.getParameter("name");
-	String shipstreet = request.getParameter("shipstreet");
-	String shipcity = request.getParameter("shipcity");
-	String shipstate = request.getParameter("shipstate");
-	String shipzip = request.getParameter("shipzip");
-	String shipcountry = request.getParameter("shipcountry");
-	String email = request.getParameter("email");%>
-	<tr><td>Name: <%=shipname %></td></tr>
-	<tr><td>Street: <%=shipstreet %></td></tr>
-	<tr><td>City: <%=shipcity %></td></tr>
-	<tr><td>State: <%=shipstate %></td></tr>
-	<tr><td>Zip Code: <%=shipzip %></td></tr>
-	<tr><td>Country: <%=shipcountry %></td></tr>
-	<tr></tr>
-	<tr><td>Email: <%=email %></td></tr>
-	</table>
-	<h3>Billing Information</h3>
-	<table border=1>
-<% 
-	String name = request.getParameter("name");
-	String street = request.getParameter("street");
-	String city = request.getParameter("city");
-	String state = request.getParameter("state");
-	String zip = request.getParameter("zip");
-	String country = request.getParameter("country");%>
-	<tr><td>Name: <%=name %></td></tr>
-	<tr><td>Street: <%=street %></td></tr>
-	<tr><td>City: <%=city %></td></tr>
-	<tr><td>State: <%=state %></td></tr>
-	<tr><td>Zip Code: <%=zip %></td></tr>
-	<tr><td>Country: <%=country %></td></tr>
-	</table>
-	<table border=1>
-	<h3>Payment Information</h3>
-<% 
-	String card = request.getParameter("creditcard");
-	String expiration = request.getParameter("expiry");
-	String cvc = request.getParameter("code");%>	
-	<tr><td>card: <%=card %></td></tr>
-	<tr><td>expiration: <%=expiration %></td></tr>
-	<tr><td>cvc: <%=cvc %></td></tr>
-	</table>
+	Purchase order = (Purchase)session.getAttribute("purchase");
+	out.print("Name: ");
+	out.print(order.getName());
+	out.print("<br>");
+	out.print("Billing Address: ");
+	out.print(order.getBill());
+	out.print("<br>");
+	out.print("Shipping Address: ");
+	out.print(order.getShip());
+	out.print("<br>");
+	out.print("Credit Card ending with: ");
+	out.print(order.getCreditEnd());
+	out.print("<br>");
+	out.print("Email: ");
+	out.print(order.getEmail());
+	out.print("<br>");
+	
+%>
 </body>
 </html>
