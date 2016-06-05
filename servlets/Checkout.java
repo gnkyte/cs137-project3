@@ -19,6 +19,7 @@ import com.mysql.jdbc.Statement;
 import utilities.SQLQueries;
 import utilities.DatabaseConnection;
 import utilities.ShoppingCart;
+import utilities.Purchase;
 
 @WebServlet(name = "Checkout", urlPatterns = {"/Checkout"})
 public class Checkout extends HttpServlet{
@@ -99,6 +100,13 @@ public class Checkout extends HttpServlet{
 			params[2] = shipping;
 			params[3] = billing;
 			params[4] = email;
+			if(session.getAttribute("purchase")==null) {
+				session.setAttribute("purchase", new Purchase());
+			}
+			
+			Purchase order = (Purchase)session.getAttribute("purchase");
+			order.makePurchase(params);
+			session.setAttribute("purchase", order);
 			int status = SQLQueries.insertOrder(params, db.connection);
 			if(status == 0){
 				out.println("Error: Inserting Order has failed.");
