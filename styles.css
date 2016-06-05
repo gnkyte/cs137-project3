@@ -305,3 +305,8 @@ hr.separator {
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 }
+
+#continue-checkout-button {
+	height: 3rem;
+	font-weight: bold;
+}

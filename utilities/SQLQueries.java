@@ -38,7 +38,7 @@ public class SQLQueries {
 	
 	public static int insertOrder(String[] params, Connection conn){
 		try{
-			String query = "INSERT INTO order (name, credit_card, ship_address, bill_address, email) VALUES (\"?\", \"?\", \"?\", \"?\", \"?\")";
+			String query = "INSERT INTO order (name, credit_card, ship_address, bill_address, email) VALUES (?, ?, ?, ?, ?)";//VALUES (\"?\", \"?\", \"?\", \"?\", \"?\")";
 			PreparedStatement prepStmt = conn.prepareStatement(query);
 			prepStmt.setString(1, params[0]);
 			prepStmt.setString(2, params[1]);

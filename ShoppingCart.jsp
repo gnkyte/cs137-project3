@@ -36,11 +36,13 @@ else{
 			out.print(c.format(items.get(i).getPrice()));
 			
 			out.println("</td><td>" + "<a href=\"/servlets/RemoveItem?item=" + items.get(i).getID() + "\">Remove</a></td></tr>");
-			
+			out.println("</table>");
+			out.println("<br /><br />");
+			out.println("<a href='Checkout.jsp'><input type='button' id='continue-checkout-button' value='Continue Checkout'></a>");
 		}
 	}
 	%>
-</table>
+	
 </div>
 </body>
 </html>
