@@ -110,8 +110,9 @@ public class Checkout extends HttpServlet{
 			int status = SQLQueries.insertOrder(params, db.connection);
 			if(status == 0){
 				out.println("Error: Inserting Order has failed.");
-			response.sendRedirect("orderdetails.jsp");
-				return;
+				//response.sendRedirect("orderdetails.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("orderdetails.jsp");
+				rd.forward(request, response);
 			}
 			else{
 				//TODO: redirect to the checkout confirmation page
