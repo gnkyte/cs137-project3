@@ -32,7 +32,7 @@ else{
 		%>
 		
 		<td>
-		<img alt="<%=imagePath %>" src="<%=name%>">
+		<img class="product-img" alt="<%=name %>" src="<%=imagePath%>">
 		<br><%=name %>
 		</td>
 		<%		
